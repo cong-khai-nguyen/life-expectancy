@@ -13,7 +13,7 @@ df[["Status"]] = df[["Status"]].replace("Developing", 0)
 # print(data.head())
 
 # Little correlation: "Alcohol", "under-five deaths" that can be considered to add to the model
-data = df[["Life expectancy","Adult Mortality", "infant deaths", "Status", "HIV/AIDS", "GDP", "Polio", "Diphtheria", "percentage expenditure",
+data = df[["Life expectancy","Adult Mortality", "infant deaths", "Status", "HIV/AIDS", "GDP", "Polio", "Diphtheria",
          "Income composition of resources","Schooling"]].copy()
 # print(data.head())
 predict = "Life expectancy"
@@ -33,7 +33,6 @@ data["Income composition of resources"].fillna(data["Income composition of resou
 data["Schooling"].fillna(data["Schooling"].median(), inplace=True)
 data["Polio"].fillna(data["Polio"].median(), inplace=True)
 data["Diphtheria"].fillna(data["Diphtheria"].mean(), inplace=True)
-data["percentage expenditure"].fillna(data["percentage expenditure"].mean(), inplace=True)
 # print(data.isnull().sum(), "\n")
 
 x = np.array(data.drop(columns = [predict]))
